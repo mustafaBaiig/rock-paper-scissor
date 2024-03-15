@@ -9,13 +9,21 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f6f7fb;
+    background-color: #7a4a83;
+    background-image: url('RockPaperScissor-1200x630_Social.jpg');
+            background-size: cover; /* Scale the image to cover the entire background */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            background-attachment: fixed; /* Keep the background image fixed while scrolling */
 }
 .container{
-    background: #fff;
+    background:  #7a4a83;
     padding: 2rem 7rem;
     border-radius: 14px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.container:hover{
+    transition: 0.6s;
+    transform: scale(1.05);
 }
 .result_images{
     display: flex;
@@ -33,6 +41,81 @@ body{
 .result{
     text-align: center;
     font-size: 2rem;
-    color: #7d2ae8;
+    color: #33155c;
     margin-top: 1.5rem;
+}
+.option_image img {
+    width: 50px;
+  }
+  .option_images {
+    display: flex;
+    align-items: center;
+    margin-top: 2.5rem;
+    justify-content: space-between;
+  }
+  .container.start .option_images {
+    pointer-events: none;
+  }
+  .option_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  .option_image:hover {
+    opacity: 1;
+  }
+  .option_image.active {
+    opacity: 1;
+  }
+  .option_image img {
+    pointer-events: none;
+  }
+  .option_image p {
+    color:  #33155c;
+    font-size: 1.235rem;
+    margin-top: 1rem;
+    pointer-events: none;
+  }
+  .container.start .user_result{
+    transform-origin:left ;
+    animation: userShake 0.7s ease infinite;
+  }
+  @keyframes userShake{
+    50%{
+        transform: rotate(10deg);
+    }
+  }
+  .container.start .cpu_result{
+    transform-origin: right;
+    animation: cpuShake 0.7s ease infinite;
+  }
+  @keyframes cpuShake{
+    50%{
+        transform: rotate(-10deg);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+        padding: 3rem;
+    }
+
+    .result_images img {
+        width: 80px;
+    }
+
+    .result {
+        font-size: 1.5rem;
+    }
+
+    .option_image img {
+        width: 60px;
+    }
+
+    .option_image p {
+        font-size: 0.8rem;
+    }
 }
